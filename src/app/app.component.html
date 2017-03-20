@@ -1,0 +1,92 @@
+<nav class="navbar navbar-inverse" style="background-color: #224;">
+    <div class="container">
+       <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Github Card Component</a>
+       </div>
+       <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">     
+          </ul>
+       </div><!--/.nav-collapse -->
+   </div>
+</nav>
+<div class="container">
+  <div class="row "> 
+      <div class="col-md-1">
+       <!-- sidebar -->
+        <div id="sidebar-wrapper">
+             <ul class="nav">
+                <li>
+                    <a target="_self" class="nav-item" (click)="searchPageRender()" > Search User</a>
+                </li>
+                <li>
+                    <a target="_self" class="nav-item" (click)="cardPageRender()" > Added Cards</a>
+                </li>
+            </ul>
+         </div>  
+     </div>
+  <div class="col-md-11">
+    <div class="container">
+      <div class="row "> 
+        <div class="col-md-8 col-md-offset-1">
+          <div class="row ">
+            <div class="col-md-12" *ngIf="searchNav == true">
+              <github></github>
+            </div>
+            <div class="col-md-12" *ngIf="cardNav == true">
+              <div class="dropdown pos-filter">
+                 <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Filter By
+                   <span class="caret"></span>
+                 </button>
+                 <ul class="dropdown-menu">
+                   <li (click)="filterByName()"><a href="#">name</a></li>
+                     <li (click)="filterByLocation()"><a href="#">location</a></li>
+                     <li (click)="filterByFollowers()"><a href="#">followers</a></li>
+                </ul>
+              </div>
+            <div *ngFor="let user of users">
+               <div>
+                 <div class="panel panel-default">
+                  <div class="panel-heading">
+                    <span  class="panel-title">
+                       {{user.name}}    
+                       <button (click)="removeUser(user)" style="text-align: right;float: right;padding: 2px;" type="button" class="btn btn-danger" (click)="onSelect(user)">Remove User</button>
+                     </span>
+                 </div>
+                 <div class="panel-body">
+                 <div class="row">
+                   <div class="col-md-4">
+                    <a href="{{user.html_url}}"> <img class="img-thumbnail github-avatar" src="{{user.avatar_url}}"></a>
+                   </div>
+                    <div class="col-md-8">
+                      <div class="stats">
+                      <span class="label label-default">{{user.public_repos}} Public Repos</span>
+                      <span class="label label-primary">{{user.public_gists}} Public Gists</span>
+                      <span class="label label-success">{{user.followers}} Followers</span>
+                      <span class="label label-info">{{user.following}} Following</span>
+                    </div>    
+                    <br>
+                    <ul class="list-group">
+                        <li class="list-group-item"><strong>Username: </strong>{{user.login}}</li> 
+                         <li class="list-group-item"><strong>Location: </strong>{{user.location}}</li>
+                          <li class="list-group-item"><strong>Email: </strong>{{user.email}}</li>
+                           <li class="list-group-item"><strong>Blog: </strong>{{user.blog}}</li> 
+                            <li class="list-group-item"><strong>Member Since: </strong>{{user.created_at}}</li>  
+                    </ul>
+            </div>    
+           </div>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div> 
+    </div>
+   </div>
+  </div>
+ </div>
+</div><!-- /.container -->

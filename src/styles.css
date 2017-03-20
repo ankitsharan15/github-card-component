@@ -1,0 +1,28 @@
+#sidebar-wrapper{
+    height: -webkit-calc(162vh - 360px);
+    height: -moz-calc(162vh - 360px);
+    padding-top: 20px;
+    width: 110px;
+    position: fixed;
+    top: 49px;
+    background-color: #224;
+    border-color: #080808;
+    left: 0px;
+}
+.nav-item{
+    color: #9d9d9d;
+    font-weight: bold;
+    font-size: 13px;
+}
+.addUser:hover{
+ color:white;
+}
+.navvy{
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+}
+.pos-filter{
+    left: -166px;
+}
+
